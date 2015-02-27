@@ -25,6 +25,7 @@ RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php5/fpm/php-fpm.co
 RUN sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php5/fpm/php.ini
  
 RUN mkdir -p        /var/www
+ADD www 			/var/www
 ADD build/default   /etc/nginx/sites-available/default
 RUN mkdir           /etc/service/nginx
 ADD build/nginx.sh  /etc/service/nginx/run
